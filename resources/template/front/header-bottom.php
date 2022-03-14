@@ -3,7 +3,7 @@
 
 
 
-<!--<div class="kk-header__bottom">
+<div class="kk-header__bottom">
 <div class="row">
 <div class="container">
 <div class="kk-header__bottom-inner d-flex flex-row flex-nowrap justify-content-between">
@@ -38,4 +38,4 @@
         </ul>
     </div>
     </div>
-</div>-->
+</div>
