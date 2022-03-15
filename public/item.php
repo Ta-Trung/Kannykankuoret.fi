@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="product-main__images position-relative mb-5 opacity-100">
-                            <div class="product-main__image-tools position-absolute top-0 z-index-23 p-3">
+                            <div class="product-main__image-tools position-absolute p-3">
                                 <div class="product-main__wishlist-icon position-relative">
                                     <button class="product-main__wishlist-button px-0">
                                         <i class="bi bi-heart"></i>

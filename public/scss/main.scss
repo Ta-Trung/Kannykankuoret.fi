@@ -1079,6 +1079,19 @@ sub {
     pointer-events: none;
   }
 
+  &__image-tools {
+    opacity: 1;
+    -webkit-transform: scale(1) translateZ(0) translateY(0) !important;
+    transform: scale(1) translateZ(0) translateY(0) !important;
+    pointer-events: inherit;
+  }
+
+  &__image-tools {
+    top: 0;
+    z-index: 23;
+    right: 0;
+  }
+
   &__wishlist-button {
     margin-left: 0.12em;
     margin-right: 0.12em;
