@@ -49,6 +49,50 @@
                                 </div>
                             </figure>
                         </div>
+                        <div class="product-thumbnails product-main__gallery-is-draggable product-main__gallery-flickity-enabled pt-0">
+                            <div class="product-thumbnails__viewport">
+                                <div class="product-thumbnails__slider">
+                                    <div class="row ml-1">
+                                        <div class="col-md-4">
+                                            <a href="#"><img src="https://via.placeholder.com/76x91" alt="" width="76" width="91"></a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#"><img src="https://via.placeholder.com/76x91" alt="" width="76" width="91"></a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#"><img src="https://via.placeholder.com/76x91" alt="" width="76" width="91"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 product-info pt-3 ">
+                        <h1 class="product-info__title">Product #1</h1>
+                        <div class="product-info__is-divider"></div>
+                        <div class="product-info__price d-block">
+                            <p>
+                                <span class="kk-latest-products__amount">
+                                    <bdi>
+                                        <span class="kk-latest-products__currency">€</span>
+                                        101.00
+                                    </bdi>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="product-info__description">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quam natus mollitia nobis nesciunt maxime rem amet. Minus, placeat. Placeat?</p>
+                        </div>
+                        <form action="#" class="product-info__cart">
+                            <div class="product-info__quantity product-info__button-added mb-3">
+                                <input type="button" value="-" class="product-info__minus product-info__button product-info__is-form">
+                                <label for="" class="product-info__screen-reader-text">Product #1</label>
+                                <input type="number" class="product-info__input-text" step="1" min="1" max name= "quantity" value="1" title="Qty" size="4" placeholder inputmode="numeric">
+                                <input type="button" value="+" class="product-info__plus product-info__button product-info__is-form">
+                            </div>
+                            <button type="submit" name="add-to-cart" value="56" class="btn btn-primary product-info__single-add-to-cart">Add To Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
