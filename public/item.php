@@ -93,6 +93,48 @@
                             </div>
                             <button type="submit" name="add-to-cart" value="56" class="btn btn-primary product-info__single-add-to-cart">Add To Cart</button>
                         </form>
+                        <div class="product-info__meta">
+                            <span class="product-info__posted-in d-block">
+                                Categories: 
+                                <a href="#">Category 1</a>
+                                ,
+                                <a href="#">Category 2</a>
+                            </span>
+                        </div>
+                        <div class="product-info__social-icons d-inline-block position-relative">
+                            <a href="#" class="product-info__icon px-0"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="product-info__icon px-0"><i class="bi bi-messenger"></i></a>
+                            <a href="#" class="product-info__icon px-0"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT FOOTER -->
+                <div class="product-footer">
+                    <div class="product-footer__tabs">
+                        <ul class="product-footer__product-tabs">
+                            <li class="product-footer__description_tab">
+                                <a href="#">Description</a>
+                            </li>
+                            <li class="product-footer__description_tab">
+                                <a href="#">Additional Info</a>
+                            </li>
+                            <li class="product-footer__description_tab">
+                                <a href="#">Review</a>
+                            </li>
+                        </ul>
+                        <div class="product-footer__tab-panels w-100 pt-3">
+                            <div class="product-footer__entry-content d-block p-0">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa, voluptatum dolore esse ex facere aliquid veniam et nostrum ullam dolorem, quo excepturi. 
+                                    Alias consequuntur ullam quidem quia repellendus, excepturi culpa ad dignissimos aperiam facilis doloribus eveniet voluptas architecto laudantium?</p>
+
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa, voluptatum dolore esse ex facere aliquid veniam et nostrum ullam dolorem, quo excepturi. 
+                                Alias consequuntur ullam quidem quia repellendus, excepturi culpa ad dignissimos aperiam facilis doloribus eveniet voluptas architecto laudantium?</p>
+
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa, voluptatum dolore esse ex facere aliquid veniam et nostrum ullam dolorem, quo excepturi. 
+                                Alias consequuntur ullam quidem quia repellendus, excepturi culpa ad dignissimos aperiam facilis doloribus eveniet voluptas architecto laudantium?</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
