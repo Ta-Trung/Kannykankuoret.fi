@@ -40,13 +40,13 @@ function get_products(){
           <div class="product-small__inner">
             <div class="product-small__box">
               <div class="product-small__image">
-                <a href="#"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
+                <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
               </div>
               <div class="product-small__text">
                 <div class="title-wrapper">
                   <p class="product-small__category no-text-overflow is-smaller opacity-75 overflow-hidden">Category 1</p>
                   <p class="product-small__name">
-                    <a href="#">{$row['product_title']}</a>
+                    <a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
                   </p>
                 </div>
                 <div class="price-wrapper d-block">

@@ -136,6 +136,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="product-footer__related-products">
+                        <h3 class="product-footer__title pt-5 pb-5">Related products</h3>
+                        <div class="container">
+                        <div class="row position-relative">
+                        <?php get_products(); ?>
+                    </div>
                 </div>
             </div>
         </div>

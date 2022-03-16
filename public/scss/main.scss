@@ -305,6 +305,14 @@ select,
   }
 
   &__dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: visible;
+    pointer-events: unset;
+  }
+
+  &__dropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -315,8 +323,8 @@ select,
     background-clip: border-box;
     background-repeat: no-repeat;
     text-align: left;
-    visibility: hidden;
-    opacity: 0;
+    //visibility: hidden;
+    //opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1),
       visibility 0.4s cubic-bezier(0.19, 1, 0.22, 1),
       transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -385,12 +393,25 @@ select,
     font-weight: 600;
   }
 
+  &__nav {
+    --nav-gap: 1rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    text-align: left;
+  }
+
   &__left {
     flex: 1 1 0%;
   }
 
   &__main-nav {
     flex: 1 1 auto;
+  }
+
+  &__menu-item {
+    position: static;
   }
 }
 
@@ -1542,5 +1563,15 @@ sub {
 
   &__entry-content p {
     font-size: 1.6rem;
+  }
+
+  &__related-products {
+    border-top: 0.1rem solid $gray-500;
+  }
+
+  &__title {
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }

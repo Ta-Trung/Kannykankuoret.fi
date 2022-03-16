@@ -38,7 +38,7 @@
               </a>
             </div>
             <div class="col-4 text-center">
-              <a class="kk-header__logo text-dark" href="#"
+              <a class="kk-header__logo text-dark" href="/kannykankuoret.fi/public"
                 ><img
                   src="./assets/img/KännykänKuoretLogo.png"
                   width="246"
