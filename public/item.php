@@ -147,6 +147,10 @@
         </div>
     </div>
 </div>
+</div>
+</div>
 
+<!-- FOOTER -->
+<?php include(TEMPLATE_FRONT . DS . "footer.php")?>
 
 

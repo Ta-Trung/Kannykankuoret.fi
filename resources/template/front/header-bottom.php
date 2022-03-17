@@ -18,22 +18,7 @@
         <ul id="menu-categories" class="kk-header__menu kk-header__nav kk-header__nav-vertical position-relative mr-0 ml-0 flex-wrap text-left mb-0 pl-0">
 
         <?php 
-            $query = "SELECT * FROM categories";
-            $send_query = mysqli_query($connection, $query);
-
-            if(!$send_query){
-                die("QUERY FAILED " . mysqli_error($connection));
-            }
-
-            while($row = mysqli_fetch_array($send_query)) {
-                echo "<li class='kk-header__menu-item position-static'>
-                <a href='#' class='kk-header__nav-link position-relative d-flex align-items-center flex-row'>
-                <i class='bi bi-arrow-right-circle-fill mr-3'></i>
-                <span class='kk-header__nav-link-text'>{$row['cat_title']}</span>
-                <i class='bi bi-chevron-right kk-header__menu-expand-icon ml-5'></i>
-                </a>
-                </li>";
-            }
+            get_categories();
         ?>
         </ul>
     </div>
