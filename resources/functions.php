@@ -76,7 +76,7 @@ function get_categories(){
   while($row = mysqli_fetch_array($query)) {
       $category_links = <<<DELIMETER
       <li class='kk-header__menu-item position-static'>
-      <a href='#' class='kk-header__nav-link position-relative d-flex align-items-center flex-row'>
+      <a href='category.php?id={$row['cat_id']}' class='kk-header__nav-link position-relative d-flex align-items-center flex-row'>
       <i class='bi bi-arrow-right-circle-fill mr-3'></i>
       <span class='kk-header__nav-link-text'>{$row['cat_title']}</span>
       <i class='bi bi-chevron-right kk-header__menu-expand-icon ml-5'></i>

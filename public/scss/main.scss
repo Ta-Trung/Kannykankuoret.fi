@@ -1626,7 +1626,6 @@ sub {
     margin: 0;
     list-style: none;
     font-size: 0.9286em;
-    border-bottom: 1px solid;
   }
 
   &__product-categories > ul > li:first-child {
@@ -1646,11 +1645,10 @@ sub {
   &__product-categories > ul li {
     position: relative;
     margin: 0;
-    border-top: 1px solid;
     transition: all 0.3s;
   }
 
   &__product-categories > ul li {
-    line-height: 24px;
+    line-height: 3.4rem;
   }
 }

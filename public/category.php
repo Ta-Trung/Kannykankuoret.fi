@@ -35,10 +35,7 @@
                             Categories
                         </h3>
                         <ul>
-                            <li>Category 1</li>
-                            <li>Category 2</li>
-                            <li>Category 3</li>
-                            <li>Category 4</li>
+                            <?php get_categories() ?>
                         </ul>
                     </aside>
                 </div>
@@ -53,13 +50,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://via.placeholder.com/900x428" alt="First slide">
+                    <img class="d-block w-100" src="https://via.placeholder.com/880x280" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                    <img class="d-block w-100" src="https://via.placeholder.com/900x428" alt="Second slide">
+                    <img class="d-block w-100" src="https://via.placeholder.com/880x280" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                    <img class="d-block w-100" src="https://via.placeholder.com/900x428" alt="Third slide">
+                    <img class="d-block w-100" src="https://via.placeholder.com/880x280" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -71,9 +68,19 @@
                     <span class="sr-only">Next</span>
                 </a>
                 </div>
+
+                <div class="product-footer__related-products">
+                        <h3 class="product pt-5 pb-5">Products</h3>
+                        <div class="container">
+                        <div class="row position-relative">
+                        <?php get_products(); ?>
+                        <?php get_products(); ?>
+                        <?php get_products(); ?>
+                    </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- FOOTER -->
