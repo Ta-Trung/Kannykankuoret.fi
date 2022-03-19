@@ -47,7 +47,7 @@
               /></a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
-              <a class="text-muted kk-header__login-customer" href="#"
+              <a class="text-muted kk-header__login-customer" href="login.php"
                 >Login / Register</a
               >
               <a class="icon kk-header__top-icon-cart mx-3" href="#"

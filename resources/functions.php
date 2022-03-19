@@ -29,6 +29,8 @@ function fetch_array($result){
     return mysqli_fetch_array($result);
 }
 
+/** FRONT END FUNCTIONS**/
+
 //GET PRODUCTS
 function get_products(){
     $query = query("SELECT * FROM products");
@@ -87,5 +89,101 @@ function get_categories(){
       echo $category_links;
   }
 }
+
+function get_products_in_cat_page(){
+  $query = query("SELECT * FROM products WHERE product_category_id = " . escape_string(($_GET['id'])). " ");
+  confirm($query);
+
+  while($row = fetch_array($query)){
+      $product = <<<DELIMETER
+      <div class="col-md-3 product-small">
+        <div class="product-small__inner">
+          <div class="product-small__box">
+            <div class="product-small__image">
+              <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
+            </div>
+            <div class="product-small__text">
+              <div class="title-wrapper">
+                <p class="product-small__category no-text-overflow is-smaller opacity-75 overflow-hidden">Category 1</p>
+                <p class="product-small__name">
+                  <a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
+                </p>
+              </div>
+              <div class="price-wrapper d-block">
+                <span class="product-small__price d-block">
+                  <span class="product-small__amount">
+                  <bdi>
+                    <span>€</span>
+                    {$row['product_price']}
+                  </bdi>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      DELIMETER;
+
+      echo $product;
+  }
+}
+
+function get_products_in_shop_page(){
+  $query = query("SELECT * FROM products");
+  confirm($query);
+
+  while($row = fetch_array($query)){
+      $product = <<<DELIMETER
+      <div class="col-md-3 product-small">
+        <div class="product-small__inner">
+          <div class="product-small__box">
+            <div class="product-small__image">
+              <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
+            </div>
+            <div class="product-small__text">
+              <div class="title-wrapper">
+                <p class="product-small__category no-text-overflow is-smaller opacity-75 overflow-hidden">Category 1</p>
+                <p class="product-small__name">
+                  <a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
+                </p>
+              </div>
+              <div class="price-wrapper d-block">
+                <span class="product-small__price d-block">
+                  <span class="product-small__amount">
+                  <bdi>
+                    <span>€</span>
+                    {$row['product_price']}
+                  </bdi>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      DELIMETER;
+
+      echo $product;
+  }
+}
+
+function login_user(){
+  if(isset($_POST['submit'])){
+    $username = escape_string($_POST['username']);
+    $password = escape_string($_POST['password']);
+
+    $query = query("SELECT * FROM users WHERE usernam= '{$username}' AND password = '{$password}'");
+    confirm($query);
+
+    if(mysqli_num_rows($query) == 0){
+      redirect("login.php");
+    }else{
+      redirect("admin");
+    }
+  }
+}
+
+/** BACK END FUNCTIONS**/
 
 ?>

@@ -10,7 +10,7 @@
         </li>
 
         <li class="kk-header__menu-item position-relative d-inline ml-3">
-        <a href="category.php" class="kk-header__nav-link">
+        <a href="shop.php" class="kk-header__nav-link">
             <span class="kk-header__nav-link-text">Shop</span>
             <i class="bi bi-chevron-down"></i>
         </a>

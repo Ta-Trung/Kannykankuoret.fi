@@ -1,7 +1,14 @@
 <?php require_once("../resources/config.php") ?>
 
 <!--HEADER-->
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>   
+<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
+
+<?php 
+    $query = query("SELECT * FROM products WHERE product_id= " . escape_string($_GET['id']) . "");
+    confirm($query);
+
+    while($row = fetch_array($query)):
+?>
 
 <!-- BREADCRUMBS -->
 <section class="breadcrumb bg-transparent position-relative text-left">
@@ -43,7 +50,7 @@
                                 <div class="product-main__viewport overflow-hidden position-relative">
                                     <div class="div product-main__slider">
                                         <div class="product-main__gallery-image">
-                                            <a href="#"><img src="https://via.placeholder.com/370x370" alt="" width="510" height="510"></a>
+                                            <a href="#"><img src="<?php echo $row['product_page_main_image'];?>" alt="" width="510" height="510"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -54,13 +61,13 @@
                                 <div class="product-thumbnails__slider">
                                     <div class="row ml-1">
                                         <div class="col-md-4">
-                                            <a href="#"><img src="https://via.placeholder.com/76x91" alt="" width="76" width="91"></a>
+                                            <a href="#"><img src="<?php echo $row['product_page_image'];?>" alt="" width="76" width="91"></a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><img src="https://via.placeholder.com/76x91" alt="" width="76" width="91"></a>
+                                            <a href="#"><img src="<?php echo $row['product_page_image'];?>" alt="" width="76" width="91"></a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><img src="https://via.placeholder.com/76x91" alt="" width="76" width="91"></a>
+                                            <a href="#"><img src="<?php echo $row['product_page_image'];?>" alt="" width="76" width="91"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -69,20 +76,20 @@
                     </div>
 
                     <div class="col-md-6 product-info pt-3 ">
-                        <h1 class="product-info__title">Product #1</h1>
+                        <h1 class="product-info__title"><?php echo $row['product_title'];?></h1>
                         <div class="product-info__is-divider"></div>
                         <div class="product-info__price d-block">
                             <p>
                                 <span class="kk-latest-products__amount">
                                     <bdi>
                                         <span class="kk-latest-products__currency">€</span>
-                                        101.00
+                                        <?php echo $row['product_price'];?>
                                     </bdi>
                                 </span>
                             </p>
                         </div>
                         <div class="product-info__description">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quam natus mollitia nobis nesciunt maxime rem amet. Minus, placeat. Placeat?</p>
+                            <p><?php echo $row['product_short_description'];?></p>
                         </div>
                         <form action="#" class="product-info__cart">
                             <div class="product-info__quantity product-info__button-added mb-3">
@@ -125,14 +132,7 @@
                         </ul>
                         <div class="product-footer__tab-panels w-100 pt-3">
                             <div class="product-footer__entry-content d-block p-0">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa, voluptatum dolore esse ex facere aliquid veniam et nostrum ullam dolorem, quo excepturi. 
-                                    Alias consequuntur ullam quidem quia repellendus, excepturi culpa ad dignissimos aperiam facilis doloribus eveniet voluptas architecto laudantium?</p>
-
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa, voluptatum dolore esse ex facere aliquid veniam et nostrum ullam dolorem, quo excepturi. 
-                                Alias consequuntur ullam quidem quia repellendus, excepturi culpa ad dignissimos aperiam facilis doloribus eveniet voluptas architecto laudantium?</p>
-
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa, voluptatum dolore esse ex facere aliquid veniam et nostrum ullam dolorem, quo excepturi. 
-                                Alias consequuntur ullam quidem quia repellendus, excepturi culpa ad dignissimos aperiam facilis doloribus eveniet voluptas architecto laudantium?</p>
+                                <p><?php echo $row['product_description']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
 </div>
 </div>
 </div>
-
+<?php endwhile; ?>
 <!-- FOOTER -->
 <?php include(TEMPLATE_FRONT . DS . "footer.php")?>
 

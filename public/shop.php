@@ -73,7 +73,7 @@
                         <h3 class="product pt-5 pb-5">Products</h3>
                         <div class="container">
                         <div class="row position-relative">
-                        <?php get_products_in_cat_page() ?>
+                        <?php get_products_in_shop_page() ?>
                     </div>
             </div>
         </div>
