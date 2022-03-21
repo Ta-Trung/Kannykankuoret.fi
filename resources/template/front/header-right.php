@@ -17,8 +17,8 @@
         </li>
 
         <li class="kk-header__menu-item position-relative d-inline ml-3">
-        <a href="#" class="kk-header__nav-link">
-            <span class="kk-header__nav-link-text">Blog</span>
+        <a href="contact.php" class="kk-header__nav-link">
+            <span class="kk-header__nav-link-text">Contact us</span>
             <i class="bi bi-chevron-down"></i>
         </a>
         </li>
