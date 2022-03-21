@@ -2,6 +2,7 @@
 
 //HELPER FUNCTIONS
 
+//Set message when password or username wrong input
 function set_message($msg){
   if(!empty($msg)){
     $_SESSION['message'] = $msg;
@@ -10,6 +11,7 @@ function set_message($msg){
   }
 }
 
+//Display message when password or username wrong input
 function display_message(){
   if(isset($_SESSION['message'])){
     echo $_SESSION['message'];
@@ -17,10 +19,12 @@ function display_message(){
   }
 }
 
+//redirect to defined pages
 function redirect($location){
     header("Location: $location ");
 }
 
+//connect to localhost globally
 function query($sql) {
     global $connection;
 
@@ -87,6 +91,7 @@ function get_products(){
     }
 }
 
+//Get categories
 function get_categories(){
   $query = query("SELECT * FROM categories");
   confirm($query);
@@ -106,6 +111,7 @@ function get_categories(){
   }
 }
 
+//get products in category pages
 function get_products_in_cat_page(){
   $query = query("SELECT * FROM products WHERE product_category_id = " . escape_string(($_GET['id'])). " ");
   confirm($query);
@@ -145,6 +151,7 @@ function get_products_in_cat_page(){
   }
 }
 
+//get products in shop pages
 function get_products_in_shop_page(){
   $query = query("SELECT * FROM products");
   confirm($query);
@@ -200,6 +207,30 @@ function login_user(){
     }else{
       redirect("./admin/admin.html");
     }
+  }
+}
+
+
+//Send messages function
+function send_message(){
+  if(isset($_POST['submit'])){//if submit button pressed
+    $to          = "tatrung1301@gmail.com"; //send message to this host email
+    $firstname   = $_POST['firstname']; //collect data from First Name
+    $lastname    = $_POST['lastname']; //collect data from Last Name
+    $email       = $_POST['email']; //collect data from Email
+    $subject     = $_POST['subject']; //collect data from Subject
+    $message     = $_POST['message']; //collect data from Message
+
+    $headers = "From: {$firstname} {$email}";
+    
+    $result = mail($to, $subject, $message, $headers);
+
+    if (!$result){
+      echo "ERROR";
+    } else {
+      echo "SENT";
+    }
+
   }
 }
 
