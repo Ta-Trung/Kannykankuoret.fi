@@ -215,20 +215,26 @@ function login_user(){
 function send_message(){
   if(isset($_POST['submit'])){//if submit button pressed
     $to          = "tatrung1301@gmail.com"; //send message to this host email
-    $firstname   = $_POST['firstname']; //collect data from First Name
-    $lastname    = $_POST['lastname']; //collect data from Last Name
-    $email       = $_POST['email']; //collect data from Email
-    $subject     = $_POST['subject']; //collect data from Subject
-    $message     = $_POST['message']; //collect data from Message
+    $firstname   =    $_POST['firstname']; //collect data from First Name
+    $lastname    =    $_POST['lastname']; //collect data from Last Name
+    $email       =    $_POST['email']; //collect data from Email
+    $subject     =    $_POST['subject']; //collect data from Subject
+    $message     =    $_POST['message']; //collect data from Message
 
-    $headers = "From: {$firstname} {$email}";
+    $headers = "From: {$firstname} {$lastname} {$email}";
     
     $result = mail($to, $subject, $message, $headers);
 
-    if (!$result){
-      echo "ERROR";
+    if(!$result) {
+
+      set_message("failed to send your message");
+      redirect("contact.php");
+
     } else {
-      echo "SENT";
+
+      set_message("Your message has been sent");
+      redirect("contact.php");
+
     }
 
   }
