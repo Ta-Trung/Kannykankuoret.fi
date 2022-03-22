@@ -44,7 +44,7 @@ $success: #7952b3;
 // @import "bootstrap/scss/code";
 @import "bootstrap/scss/grid";
 // @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
 // @import "bootstrap/scss/dropdown";
@@ -53,7 +53,7 @@ $success: #7952b3;
 // @import "bootstrap/scss/custom-forms";
 // @import "bootstrap/scss/nav";
 // @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
+@import "bootstrap/scss/card";
 // @import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
@@ -1710,4 +1710,15 @@ sub {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+//CONTACT PAGE CSS
+#page-header {
+  height: 20rem;
+  background: url("https://via.placeholder.com/1903x200");
+  background-position: 0 -36rem;
+  background-attachment: fixed;
+  color: $white;
+  border-bottom: 1px #f8f9fa solid;
+  padding-top: 5rem;
 }
