@@ -81,6 +81,7 @@ function get_products(){
                     </span>
                   </span>
                 </div>
+                <a href="cart.php?add={$row['product_id']}" class="btn btn-primary mt-3">Art To Cart</a>
               </div>
             </div>
           </div>

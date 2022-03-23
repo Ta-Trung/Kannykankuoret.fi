@@ -4,10 +4,19 @@
 <!-- HEADER -->
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
 
+<!-- START SESSION -->
+<?php 
+$_SESSION['product_1'] = 4
+
+
+
+
+?>
+
 <!--SHOPPING CART -->
 <section class="h-100 h-custom">
-    <div class="conatiner py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100 checkout-page">
             <div class="col-12">
                 <div class="card card-registration card-registration-2">
                     <div class="card-body p-0">
@@ -29,13 +38,13 @@
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                             <button class="btn btn-link px-2">
-                                                <svg class="bi text-dark" width="24" height="24">
+                                                <svg class="bi text-dark" width="10" height="10">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
                                                 </svg>
                                             </button>
                                             <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
                                             <button class="btn btn-link px-2">
-                                                <svg class="bi text-dark" width="24" height="24">
+                                                <svg class="bi text-dark" width="10" height="10">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
                                                 </svg>
                                             </button>
@@ -62,13 +71,13 @@
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                             <button class="btn btn-link px-2">
-                                                <svg class="bi text-dark" width="24" height="24">
+                                                <svg class="bi text-dark" width="10" height="10">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
                                                 </svg>
                                             </button>
                                             <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
                                             <button class="btn btn-link px-2">
-                                                <svg class="bi text-dark" width="24" height="24">
+                                                <svg class="bi text-dark" width="10" height="10">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
                                                 </svg>
                                             </button>
@@ -133,7 +142,7 @@
                                         <h5>€ 137.00</h5>
                                     </div>
 
-                                    <button type="button" data-mdb-ripple-color="dark" class="btn btn-dark btn-block btn-lg">Register</button>
+                                    <button type="button" data-mdb-ripple-color="dark" class="btn btn-dark btn-block btn-lg">Checkout</button>
                                 </div>
                             </div>
                         </div>

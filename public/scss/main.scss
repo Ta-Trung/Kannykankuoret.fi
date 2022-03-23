@@ -49,8 +49,8 @@ $success: #7952b3;
 @import "bootstrap/scss/transitions";
 // @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
-// @import "bootstrap/scss/input-group"; // Requires forms
-// @import "bootstrap/scss/custom-forms";
+@import "bootstrap/scss/input-group"; // Requires forms
+@import "bootstrap/scss/custom-forms";
 // @import "bootstrap/scss/nav";
 // @import "bootstrap/scss/navbar"; // Requires nav
 @import "bootstrap/scss/card";
@@ -1721,4 +1721,27 @@ sub {
   color: $white;
   border-bottom: 1px #f8f9fa solid;
   padding-top: 5rem;
+}
+
+//CHECKOUT CSS
+.checkout-page h6 {
+  font-size: 1.6rem;
+}
+
+.checkout-page h5 {
+  font-size: 1.8rem;
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.card-registration .select-arrow {
+  top: 1.3rem;
+}
+
+.bg-grey {
+  background-color: $gray-400;
 }
