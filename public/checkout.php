@@ -5,12 +5,18 @@
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
 
 <!-- START SESSION -->
-<?php echo $_SESSION['product_1']; ?>
+<?php 
+if(isset($_SESSION['product_1'])){
+    echo $_SESSION['product_1'];
+}
+
+?>
 
 <!--SHOPPING CART -->
 <section class="h-100 h-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 checkout-page">
+            <h4 class="text-center bg-danger"><?php display_message(); ?></h4>
             <div class="col-12">
                 <div class="card card-registration card-registration-2">
                     <div class="card-body p-0">
@@ -31,11 +37,13 @@
                                             <h6 class="text-black mb-0">Cotton T-Shirt</h6>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                            <button class="btn btn-link px-2">
-                                                <svg class="bi text-dark" width="10" height="10">
-                                                    <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
-                                                </svg>
-                                            </button>
+                                            <a href="cart.php?remove=1">
+                                                <button class="btn btn-link px-2">
+                                                    <svg class="bi text-dark" width="10" height="10">
+                                                        <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
+                                                    </svg>
+                                                </button>
+                                            </a>
                                             <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
                                             <button class="btn btn-link px-2">
                                                 <svg class="bi text-dark" width="10" height="10">
@@ -47,7 +55,7 @@
                                             <h6 class="mb-0">€ 44.00</h6>
                                         </div>
                                         <div class="col-md-1 col-lg-1 text-end">
-                                            <a href="#" class="text-muted">
+                                            <a href="cart.php?delete=1" class="text-muted">
                                                 <svg class="bi text-dark" width="24" height="24">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#x"/>
                                                 </svg>
@@ -80,7 +88,7 @@
                                             <h6 class="mb-0">€ 44.00</h6>
                                         </div>
                                         <div class="col-md-1 col-lg-1 text-end">
-                                            <a href="#" class="text-muted">
+                                            <a href="cart.php?delete=1" class="text-muted">
                                                 <svg class="bi text-dark" width="24" height="24">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#x"/>
                                                 </svg>
