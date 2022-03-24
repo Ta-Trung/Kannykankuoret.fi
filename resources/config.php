@@ -2,6 +2,7 @@
 
 ob_start(); //create an output buffer
 session_start(); //start the session
+session_destroy();
 
 defined("DS") ? null : define ("DS", DIRECTORY_SEPARATOR); //make public folder to be seen as default homepage
 
@@ -18,5 +19,5 @@ defined("DB_NAME") ? null : define("DB_NAME", "kk_db"); //define database
 $connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME); //define connection to localhos database
 
 require_once("functions.php"); //require function.php to operate webpage
-
+require_once("cart.php");
 ?>

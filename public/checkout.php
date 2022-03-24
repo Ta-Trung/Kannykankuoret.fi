@@ -5,13 +5,7 @@
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
 
 <!-- START SESSION -->
-<?php 
-$_SESSION['product_1'] = 4
-
-
-
-
-?>
+<?php echo $_SESSION['product_1']; ?>
 
 <!--SHOPPING CART -->
 <section class="h-100 h-custom">
