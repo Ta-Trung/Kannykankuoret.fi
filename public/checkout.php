@@ -1,5 +1,6 @@
 <!-- GET GLOBAL CONNECTION FROM CONFIG.PHP -->
 <?php require_once("../resources/config.php") ?>
+<?php require_once("cart.php") ?>
 
 <!-- HEADER -->
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
@@ -29,38 +30,7 @@ if(isset($_SESSION['product_1'])){
                                     </div>
                                     <hr class="my-4">
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
-                                        <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="https://via.placeholder.com/71x89" alt="" class="img-fluid rounded-3">
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-xl-3">
-                                            <h6 class="text-muted">Shirt</h6>
-                                            <h6 class="text-black mb-0">Cotton T-Shirt</h6>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                            <a href="cart.php?remove=1">
-                                                <button class="btn btn-link px-2">
-                                                    <svg class="bi text-dark" width="10" height="10">
-                                                        <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
-                                                    </svg>
-                                                </button>
-                                            </a>
-                                            <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
-                                            <button class="btn btn-link px-2">
-                                                <svg class="bi text-dark" width="10" height="10">
-                                                    <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                            <h6 class="mb-0">€ 44.00</h6>
-                                        </div>
-                                        <div class="col-md-1 col-lg-1 text-end">
-                                            <a href="cart.php?delete=1" class="text-muted">
-                                                <svg class="bi text-dark" width="24" height="24">
-                                                    <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#x"/>
-                                                </svg>
-                                            </a>
-                                        </div>
+                                        <?php cart(); ?>
                                     </div>
                                     <hr class="my-4">
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
