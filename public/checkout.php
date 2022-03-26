@@ -6,13 +6,6 @@
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
 
 <!-- START SESSION -->
-<?php 
-if(isset($_SESSION['product_1'])){
-    echo $_SESSION['product_1'];
-}
-
-?>
-
 <!--SHOPPING CART -->
 <section class="h-100 h-custom">
     <div class="container py-5 h-100">
@@ -49,9 +42,13 @@ if(isset($_SESSION['product_1'])){
                                     <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                     <hr class="my-4">
 
-                                    <div class="d-flex justiify-content-between mb-4">
-                                        <h5 class="text-uppercase">Item 3</h5>
-                                        <h5>€ 132.00</h5>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">Quantity:</h5>
+                                        <h5>
+                                        <?php 
+                                            echo isset($_SESSION['item_quantity']) ? $_SESSION['item_quantity'] : $_SESSION['item_quantity'] = "0";
+                                        ?>
+                                        </h5>
                                     </div>
 
                                     <h5 class="text-uppercase mb-3">Shipping</h5>
@@ -77,8 +74,21 @@ if(isset($_SESSION['product_1'])){
                                     <hr class="my-4">
 
                                     <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">Sub price</h5>
+                                        <h5>
+                                        &euro; <?php 
+                                            echo isset($_SESSION['item_sub']) ? $_SESSION['item_sub'] : $_SESSION['item_sub'] = "0";
+                                            ?>
+                                        </h5>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mb-5">
                                         <h5 class="text-uppercase">Total price</h5>
-                                        <h5>€ 137.00</h5>
+                                        <h5>
+                                        &euro; <?php
+                                            echo isset($_SESSION['item_total']) ? $_SESSION['item_total'] : $_SESSION['item_total'] = "0";
+                                            ?>
+                                        </h5>
                                     </div>
 
                                     <button type="button" data-mdb-ripple-color="dark" class="btn btn-dark btn-block btn-lg">Checkout</button>

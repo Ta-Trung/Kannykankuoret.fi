@@ -23,6 +23,9 @@ if(isset($_GET['add'])){//Collect data from Add to Cart -button in the form of A
 if(isset($_GET['remove'])){ //press minus to reduce item quantity
     $_SESSION['product_' . $_GET['remove']]--;
     if($_SESSION['product_' . $_GET['remove']] < 1){
+        unset($_SESSION['item_total']);
+        unset($_SESSION['item_quantity']);
+        unset($_SESSION['item_sub']);
         redirect("checkout.php");
     } else{
         redirect("checkout.php");
@@ -31,10 +34,16 @@ if(isset($_GET['remove'])){ //press minus to reduce item quantity
 
 if(isset($_GET['delete'])){ //press x to delete item
     $_SESSION['product_' . $_GET['delete']] = '0';
+    unset($_SESSION['item_total']);
+    unset($_SESSION['item_quantity']);
+    unset($_SESSION['item_sub']);
     redirect("checkout.php");   
 }
 
 function cart(){
+    $total = 0;
+    $sub   = 0;
+    $item_quantity = 0;
     foreach($_SESSION as $name  =>  $value){
         if($value > 0){
             if(substr($name, 0, 8) == "product_"){
@@ -46,6 +55,10 @@ function cart(){
             confirm($query);
     
             while($row = fetch_array($query)){
+                $product_price = $row['product_price']*$value;
+                $sub += $product_price ;
+                $item_quantity += $value;
+                
                 $product = <<<DELIMETER
                     <div class="col-md-2 col-lg-2 col-xl-2">
                     <img src="https://via.placeholder.com/71x89" alt="" class="img-fluid rounded-3">
@@ -60,7 +73,7 @@ function cart(){
                                 <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
                             </svg>
                         </a>
-                        <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
+                        <input type="number" id="form1" min="0" name="quantity" value="{$value}" class="form-control form-control-sm">
                         <a class="btn btn-link px-2" href="cart.php?add={$row['product_id']}">
                             <svg class="bi text-dark mt-3" width="10" height="10">
                                 <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
@@ -68,7 +81,7 @@ function cart(){
                         </a>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
+                        <h6 class="mb-0">&euro; {$row['product_price']}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 text-end">
                         <a href="cart.php?delete={$row['product_id']}" class="text-muted">
@@ -81,6 +94,9 @@ function cart(){
     
                     echo $product;
                 }
+                $_SESSION['item_sub'] = $sub;
+                $_SESSION['item_total'] = $total += $sub;
+                $_SESSION['item_quantity'] = $item_quantity;
             }
 
         }    
@@ -104,7 +120,7 @@ function cart(){
 
 
 
-
+ 
 
 
 

@@ -4,8 +4,6 @@ ob_start(); //create an output buffer
 session_start(); //start the session
 //session_destroy();
 
-
-
 defined("DS") ? null : define ("DS", DIRECTORY_SEPARATOR); //make public folder to be seen as default homepage
 
 defined("TEMPLATE_FRONT") ? null : define("TEMPLATE_FRONT", __DIR__ . DS . "template/front"); //front end folder
