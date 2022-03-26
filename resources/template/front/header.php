@@ -50,7 +50,7 @@
               <a class="text-muted kk-header__login-customer" href="login.php"
                 >Login / Register</a
               >
-              <a class="icon kk-header__top-icon-cart mx-3" href="#"
+              <a class="icon kk-header__top-icon-cart mx-3" href="checkout.php"
                 ><i class="bi bi-bag"></i
               ></a>
             </div>

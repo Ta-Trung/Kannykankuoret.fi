@@ -1,7 +1,7 @@
 <!-- GET GLOBAL CONNECTION FROM CONFIG.PHP -->
 <?php require_once("../resources/config.php") ?>
 
-<!-- FOOTER -->
+<!-- HEADER -->
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
 
 <!-- PAGE HEADER -->
