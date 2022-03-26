@@ -36,47 +36,54 @@ if(isset($_GET['delete'])){ //press x to delete item
 
 function cart(){
     foreach($_SESSION as $name  =>  $value){
-        if(substr($name, 0, 7) == "product_"){
-            $query = query("SELECT * FROM products");
-        confirm($query);
+        if($value > 0){
+            if(substr($name, 0, 8) == "product_"){
 
-        while($row = fetch_array($query)){
-            $product = <<<DELIMETER
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                <img src="https://via.placeholder.com/71x89" alt="" class="img-fluid rounded-3">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                    <h6 class="text-muted">Shirt</h6>
-                    <h6 class="text-black mb-0">{$row['product_title']}</h6>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                    <a class="btn btn-link px-2" href="cart.php?remove={$row['product_id']}">
-                        <svg class="bi text-dark mt-3" width="10" height="10">
-                            <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
-                        </svg>
-                    </a>
-                    <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
-                    <a class="btn btn-link px-2" href="cart.php?add={$row['product_id']}">
-                        <svg class="bi text-dark mt-3" width="10" height="10">
-                            <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                    <h6 class="mb-0">€ 44.00</h6>
-                </div>
-                <div class="col-md-1 col-lg-1 text-end">
-                    <a href="cart.php?delete={$row['product_id']}" class="text-muted">
-                        <svg class="bi text-dark" width="24" height="24">
-                            <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#x"/>
-                        </svg>
-                    </a>
-                </div>
-                DELIMETER;
+            $length = strlen($name);
+            $id     = substr($name, 8 , $length);
 
-                echo $product;
+            $query = query("SELECT * FROM products WHERE product_id = " . escape_string($id). "");
+            confirm($query);
+    
+            while($row = fetch_array($query)){
+                $product = <<<DELIMETER
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img src="https://via.placeholder.com/71x89" alt="" class="img-fluid rounded-3">
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                        <h6 class="text-muted">Shirt</h6>
+                        <h6 class="text-black mb-0">{$row['product_title']}</h6>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                        <a class="btn btn-link px-2" href="cart.php?remove={$row['product_id']}">
+                            <svg class="bi text-dark mt-3" width="10" height="10">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
+                            </svg>
+                        </a>
+                        <input type="number" id="form1" min="0" name="quantity" value="1" class="form-control form-control-sm">
+                        <a class="btn btn-link px-2" href="cart.php?add={$row['product_id']}">
+                            <svg class="bi text-dark mt-3" width="10" height="10">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                        <h6 class="mb-0">€ 44.00</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 text-end">
+                        <a href="cart.php?delete={$row['product_id']}" class="text-muted">
+                            <svg class="bi text-dark" width="24" height="24">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#x"/>
+                            </svg>
+                        </a>
+                    </div>
+                    DELIMETER;
+    
+                    echo $product;
+                }
             }
-        }
+
+        }    
     }   
 }
 
