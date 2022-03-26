@@ -19,7 +19,7 @@
                                 <div class="p-5">
                                     <div class="d-flex justify-content-between align-items-center mb-5">
                                         <h1 class="fw-bold mb-0 text-black">Shopping cart</h1>
-                                        <h6 class="mb-0 text-muted">3 items</h6>
+                                        <h6 class="mb-0 text-muted"><?php echo isset($_SESSION['item_quantity']) ? $_SESSION['item_quantity'] : $_SESSION['item_quantity'] = "0"; ?> items</h6>
                                     </div>
                                     <hr class="my-4">
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -28,7 +28,7 @@
                                     <hr class="my-4">
                                     <div class="pt-5">
                                         <h6 class="mb-0">
-                                            <a href="#" class="text-body">
+                                            <a href="shop.php" class="text-body">
                                                 <svg class="bi text-dark" width="24" height="24">
                                                     <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#arrow-left"/>
                                                 </svg> Back to Shop
