@@ -98,7 +98,7 @@
                                 <input type="number" class="product-info__input-text" step="1" min="1" max name= "quantity" value="1" title="Qty" size="4" placeholder inputmode="numeric">
                                 <input type="button" value="+" class="product-info__plus product-info__button product-info__is-form">
                             </div>
-                            <button type="submit" name="add-to-cart" value="56" class="btn btn-primary product-info__single-add-to-cart">Add To Cart</button>
+                            <a href="cart.php?add=<?php echo $row['product_id']; ?>" class="btn btn-primary product-info__single-add-to-cart">Add To Cart</a>
                         </form>
                         <div class="product-info__meta">
                             <span class="product-info__posted-in d-block">
