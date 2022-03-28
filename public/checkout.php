@@ -99,8 +99,7 @@
                                                 ?>
                                             </h5>
                                         </div>
-
-                                        <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" border="0" name="upload" alt="PayPal - The safer, easier way to pay online!">
+                                        <?php echo show_paypal(); ?>
                                     </div>
                                 </div>
                             </div>

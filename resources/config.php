@@ -19,5 +19,4 @@ defined("DB_NAME") ? null : define("DB_NAME", "kk_db"); //define database
 $connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME); //define connection to localhos database
 
 require_once("functions.php"); //require function.php to operate webpage
-require_once("cart.php")
 ?>
