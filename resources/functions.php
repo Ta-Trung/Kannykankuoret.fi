@@ -206,7 +206,7 @@ function login_user(){
       set_message("Your password or username are incorrect");
       redirect("login.php");
     }else{
-      redirect("./admin/admin.html");
+      redirect("admin");
     }
   }
 }
