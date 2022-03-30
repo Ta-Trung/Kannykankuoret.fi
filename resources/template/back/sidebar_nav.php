@@ -18,7 +18,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link active text-dark">
+              <a href="index.php?products" class="nav-link active text-dark">
                 <svg class="bi text-dark" width="24" height="24">
                   <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#cart"/>
                 </svg> Products <span class="sr-only">(current)</span>
@@ -26,26 +26,26 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link active text-dark">
+              <a href="index.php?categories" class="nav-link active text-dark">
                 <svg class="bi text-dark" width="24" height="24">
                   <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#people"/>
-                </svg> Customers <span class="sr-only">(current)</span>
+                </svg> Categories <span class="sr-only">(current)</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link active text-dark">
+              <a href="index.php?add_product" class="nav-link active text-dark">
                 <svg class="bi text-dark" width="24" height="24">
                   <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#bar-chart"/>
-                </svg> Reports <span class="sr-only">(current)</span>
+                </svg> Add Products <span class="sr-only">(current)</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link active text-dark">
+              <a href="index.php?edit_product" class="nav-link active text-dark">
                 <svg class="bi text-dark" width="24" height="24">
                   <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#wallet2"/>
-                </svg> Integrations <span class="sr-only">(current)</span>
+                </svg> Edit Products <span class="sr-only">(current)</span>
               </a>
             </li>
           </ul>
