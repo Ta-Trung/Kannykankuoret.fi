@@ -180,3 +180,17 @@ body {
 .border-bottom {
   border-bottom: 1px solid $gray-200;
 }
+
+//EDIT PRODUCT
+.edit-product-admin,
+.edit-product-admin input,
+.edit-product-admin select,
+.edit-product-admin span,
+.edit-product-admin .btn,
+.edit-product-admin textarea {
+  font-size: 1.6rem;
+}
+
+.edit-product-admin h5 {
+  font-size: 2rem;
+}
