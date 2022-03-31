@@ -1,4 +1,4 @@
-<?php require_once("../resources/config.php") ?>
+<?php require_once("config.php") ?>
 
 <?php 
 
@@ -9,10 +9,10 @@ if(isset($_GET['add'])){//Collect data from Add to Cart -button in the form of A
     while($row = fetch_array($query)){
         if($row['product_quantity'] != $_SESSION['product_' . $_GET['add']]){//If product quantity is not equal to product in the session of ADD
             $_SESSION['product_' . $_GET['add']]+=1; //add one to current product id
-            redirect("checkout.php");
+            redirect("../public/checkout.php");
         } else{
             set_message("We only have " . $row['product_quantity'] . " " .$row['product_title']. " available");
-            redirect("checkout.php");
+            redirect("../public/checkout.php");
         }
     }
 
@@ -26,9 +26,9 @@ if(isset($_GET['remove'])){ //press minus to reduce item quantity
         unset($_SESSION['item_total']);
         unset($_SESSION['item_quantity']);
         unset($_SESSION['item_sub']);
-        redirect("checkout.php");
+        redirect("../public/checkout.php");
     } else{
-        redirect("checkout.php");
+        redirect("../public/checkout.php");
     }
 }
 
@@ -37,7 +37,7 @@ if(isset($_GET['delete'])){ //press x to delete item
     unset($_SESSION['item_total']);
     unset($_SESSION['item_quantity']);
     unset($_SESSION['item_sub']);
-    redirect("checkout.php");   
+    redirect("../public/checkout.php");   
 }
 
 function cart(){
@@ -73,13 +73,13 @@ function cart(){
                         <h6 class="text-black mb-0">{$row['product_title']}</h6>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <a class="btn btn-link px-2" href="cart.php?remove={$row['product_id']}">
+                        <a class="btn btn-link px-2" href="../resources/cart.php?remove={$row['product_id']}">
                             <svg class="bi text-dark mt-3" width="10" height="10">
                                 <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#dash"/>
                             </svg>
                         </a>
                         <input type="number" id="form1" min="0" name="quantity" value="{$value}" class="form-control form-control-sm">
-                        <a class="btn btn-link px-2" href="cart.php?add={$row['product_id']}">
+                        <a class="btn btn-link px-2" href="../resources/cart.php?add={$row['product_id']}">
                             <svg class="bi text-dark mt-3" width="10" height="10">
                                 <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#plus"/>
                             </svg>
@@ -89,7 +89,7 @@ function cart(){
                         <h6 class="mb-0">&euro; {$row['product_price']}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 text-end">
-                        <a href="cart.php?delete={$row['product_id']}" class="text-muted">
+                        <a href="../resources/cart.php?delete={$row['product_id']}" class="text-muted">
                             <svg class="bi text-dark" width="24" height="24">
                                 <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#x"/>
                             </svg>
@@ -120,7 +120,7 @@ function cart(){
 
 function show_paypal(){
 
-    if(isset($_SESSION['item_quantity'])){
+    if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1 ){
     $paypal_button = <<<DELIMETER
     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" 
     border="0" name="upload" alt="PayPal - The safer, easier way to pay online!">

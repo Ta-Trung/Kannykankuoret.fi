@@ -44,7 +44,7 @@ $success: #7952b3;
 // @import "bootstrap/scss/code";
 @import "bootstrap/scss/grid";
 @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/dropdown";
@@ -53,7 +53,7 @@ $success: #7952b3;
 @import "bootstrap/scss/custom-forms";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
+@import "bootstrap/scss/card";
 // @import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
@@ -179,4 +179,139 @@ body {
 }
 .border-bottom {
   border-bottom: 1px solid $gray-200;
+}
+
+//EDIT PRODUCT
+.edit-product-admin,
+.edit-product-admin input,
+.edit-product-admin select,
+.edit-product-admin span,
+.edit-product-admin .btn,
+.edit-product-admin textarea {
+  font-size: 1.6rem;
+}
+
+.edit-product-admin h5 {
+  font-size: 2rem;
+}
+
+.form-check-input[type="radio"] {
+  border-radius: 50%;
+}
+
+.form-check-input {
+  width: 1.16em;
+  height: 1.16em;
+}
+
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+.fileupload {
+  overflow: hidden;
+  position: relative;
+}
+
+.fileupload input.upload {
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.product-img:hover .pro-img-overlay {
+  display: block;
+}
+
+.product-img .pro-img-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  display: none;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.product-img {
+  text-align: center;
+  position: relative;
+}
+
+.product-img .pro-img-overlay a {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -o-border-radius: 100%;
+  text-align: center;
+  padding: 11px 0;
+  color: #fff;
+  margin: 20% 5px;
+}
+
+/*
+ * PRODUCTS-ADMIN
+ */
+
+.product-admin {
+  font-size: 1.6rem;
+
+  &__page-title {
+    background: $white;
+    padding: 14px 10px;
+    margin: 0 -25px 25px -25px;
+  }
+
+  &__page-title h4 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.product-text {
+  border-top: 1px solid #e9ecef;
+  padding-top: 15px;
+  position: relative;
+}
+
+.product-text h5 {
+  font-size: 2rem;
+}
+
+.product-text .pro-price {
+  position: absolute;
+  padding: 20px 0;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -o-border-radius: 100%;
+  top: -30px;
+  right: 0px;
 }

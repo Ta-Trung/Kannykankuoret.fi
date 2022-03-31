@@ -81,7 +81,7 @@ function get_products(){
                     </span>
                   </span>
                 </div>
-                <a href="cart.php?add={$row['product_id']}" class="btn btn-primary mt-3">Art To Cart</a>
+                <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary mt-3">Art To Cart</a>
               </div>
             </div>
           </div>
@@ -206,7 +206,9 @@ function login_user(){
       set_message("Your password or username are incorrect");
       redirect("login.php");
     }else{
-      redirect("./admin/admin.html");
+
+      $_SESSION['username'] =   $username;
+      redirect("admin");
     }
   }
 }
