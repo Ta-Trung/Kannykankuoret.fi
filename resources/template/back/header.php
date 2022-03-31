@@ -18,7 +18,7 @@
     <input type="text" class="form-control form-control-dark w-100" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <a href="#" class="nav-link">Sign out</a>
+        <a href="logout.php" class="nav-link">Sign out</a>
       </li>
     </ul>
   </nav>

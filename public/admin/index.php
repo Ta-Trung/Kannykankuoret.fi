@@ -2,6 +2,12 @@
 <?php include(TEMPLATE_BACK . "/header.php"); ?>
 
 <?php 
+if(!isset($_SESSION['username'])){
+  redirect("../../public");
+}
+?>
+
+<?php 
 if($_SERVER['REQUEST_URI'] == "/kannykankuoret.fi/public/admin/" || $_SERVER['REQUEST_URI'] == "/kannykankuoret.fi/public/admin/index.php" ){
   include(TEMPLATE_BACK . "/admin_content.php");
 }
