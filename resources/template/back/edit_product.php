@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <form action="#">
                         <div class="form-body">
-                            <div class="card-title">Edit Product</div>
+                            <h5 class="card-title">Edit Product</h5>
                             <hr>
                             <div class="row">
                                 <div class="col-md-6">
@@ -40,11 +40,12 @@
                                         <br>
                                         <div class="custom-control custom-radio custom-control-inline">
                                             <input type="radio" id="customRadioInline1" class="form-check-input" name="customRadioInline1">
-                                            <label for="customRadioInline1" class="form-check-label">Publish</label>
+                                            <label for="customRadioInline1" class="form-check-label ml-3">Publish</label>
                                         </div>
+                                        <br>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="customRadioInline2" class="form-check-input" name="customRadioInline2">
-                                            <label for="customRadioInline2" class="form-check-label">Draft</label>
+                                            <input type="radio" id="customRadioInline2" class="form-check-input" name="customRadioInline1">
+                                            <label for="customRadioInline2" class="form-check-label ml-3">Draft</label>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +81,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h5 class="card-title m-t-40">Product Description</h5>
+                                <h5 class="card-title mt-5 ml-4">Product Description</h5>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -106,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <h5 class="card-title m-t-20">Upload Image</h5>
+                                    <h5 class="card-title mt-3">Upload Image</h5>
                                     <div class="product-img">
                                         <img src="https://via.placeholder.com/200x249" alt="">
                                         <div class="pro-img-overlay">
@@ -122,7 +123,7 @@
                                             </a>
                                             <br>
                                         </div>
-                                        <div class="fileupload btn btn-info wave-effect-wave-light text-white">
+                                        <div class="fileupload btn btn-info wave-effect-wave-light text-white mt-3">
                                             <span>Upload Anonther Image</span>
                                             <input type="file" class="upload">
                                         </div>
