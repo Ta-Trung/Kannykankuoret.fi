@@ -118,7 +118,7 @@ function cart(){
     }   
 }
 
-function report(){
+function process_transaction(){
     if(isset($_GET['tx'])){
     $amount = $_GET['amt'];
     $currency = $_GET['cc'];
@@ -135,7 +135,7 @@ function report(){
             $length = strlen($name);
             $id     = substr($name, 8 , $length);
 
-            $send_order = query ("INSERT INTO orders (order_amount,order_transaction,order_status,order_currency) VALUES ('{$amount}','{$currency}','{$transaction}','{$status}')");
+            $send_order = query ("INSERT INTO orders (order_amount,order_transaction,order_status,order_currency) VALUES ('{$amount}','{$transaction}','{$status}','{$currency}')");
             $last_id = last_id();
             confirm($send_order);
 

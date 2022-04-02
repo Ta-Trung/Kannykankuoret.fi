@@ -5,7 +5,7 @@
 <?php include(TEMPLATE_FRONT .DS. "header.php") ?>
 
 <?php 
-    report();
+    process_transaction();
 ?>
 
 <!-- START SESSION -->
