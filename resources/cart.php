@@ -118,6 +118,53 @@ function cart(){
     }   
 }
 
+function report(){
+    if(isset($_GET['tx'])){
+    $amount = $_GET['amt'];
+    $currency = $_GET['cc'];
+    $transaction = $_GET['tx'];
+    $status = $_GET['st'];
+    $total = 0;
+    $sub   = 0;
+    $item_quantity = 0;
+
+    foreach($_SESSION as $name  =>  $value){
+        if($value > 0){
+            if(substr($name, 0, 8) == "product_"){
+
+            $length = strlen($name);
+            $id     = substr($name, 8 , $length);
+
+            $send_order = query ("INSERT INTO orders (order_amount,order_transaction,order_status,order_currency) VALUES ('{$amount}','{$currency}','{$transaction}','{$status}')");
+            $last_id = last_id();
+            confirm($send_order);
+
+            $query = query("SELECT * FROM products WHERE product_id = " . escape_string($id). "");
+            confirm($query);
+    
+            while($row = fetch_array($query)){
+                $product_price = $row['product_price']*$value;
+                $product_title = $row['product_title'];
+                $sub += $product_price ;
+                $item_quantity += $value;
+
+                $insert_report = query ("INSERT INTO report (product_id, order_id, product_title, product_price, product_quantity) VALUES ('{$id}','{$last_id}','{$product_title}','{$product_price}','{$value}')");
+                confirm($insert_report);
+    
+                }
+                $sub;
+                $total += $sub;
+                $item_quantity;
+                }
+            }    
+        }
+    session_destroy();
+    }else {
+        redirect("index.php");
+    }   
+}
+
+
 function show_paypal(){
 
     if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1 ){

@@ -2,6 +2,13 @@
 
 //HELPER FUNCTIONS
 
+//Get last order id
+function last_id(){
+  global $connection;
+  return mysqli_insert_id($connection);
+  
+}
+
 //Set message when password or username wrong input
 function set_message($msg){
   if(!empty($msg)){
