@@ -10,6 +10,8 @@ defined("TEMPLATE_FRONT") ? null : define("TEMPLATE_FRONT", __DIR__ . DS . "temp
 
 defined("TEMPLATE_BACK") ? null : define ("TEMPLATE_BACK", __DIR__ . DS . "template/back" ); //define back end folder
 
+defined("UPLOAD_DIRECTORY") ? null : define ("UPLOAD_DIRECTORY", __DIR__ . DS . "uploads" ); //define backup folder
+
 defined("DB_HOST") ? null : define ("DB_HOST", "localhost"); //define host
 defined("DB_USER") ? null : define("DB_USER", "root"); //define username
 

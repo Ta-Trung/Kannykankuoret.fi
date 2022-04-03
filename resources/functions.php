@@ -272,4 +272,92 @@ function display_orders(){
   }
 }
 
+//ADMIN PRODUCTS
+function get_products_in_admin(){
+  $query = query("SELECT * FROM products");
+  confirm($query);
+
+  while($row = fetch_array($query)){
+    $product = <<<DELIMETER
+    <div class="col-lg-3 col-md-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="product-img">
+                    <img src="{$row['product_image_admin']}" alt="">
+                    <div class="pro-img-overlay">
+                        <a href="index.php?edit_product&id={$row['product_id']}" class="bg-info">
+                            <svg class="bi text-dark" width="24" height="24">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#pencil"/>
+                            </svg>
+                        </a>
+                        <a href="../../resources/template/back/delete_product.php?id={$row['product_id']}" class="bg-danger">
+                            <svg class="bi text-dark" width="24" height="24">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#trash"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-text">
+                    <span class="pro-price bg-primary text-dark">€{$row['product_price']}</span>
+                    <h5 class="card-title mb-0">{$row['product_title']}</h5>
+                    <small class="text-muted db">{$row['product_short_description']}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    DELIMETER;
+    echo $product;
+  }
+}
+
+//ADD PRODUCTS IN ADMIN
+function add_product(){
+  if(isset($_POST['publish'])){
+    $product_title        = escape_string($_POST['product_title']);
+    $product_category_id  = escape_string($_POST['product_category_id']);
+    $product_price        = escape_string($_POST['product_price']);
+    $product_description  = escape_string($_POST['product_description']);
+    $product_short_desc   = escape_string($_POST['product_short_description']);
+    $product_quantity     = escape_string($_POST['product_quantity']);
+    $product_image        = escape_string($_FILES['file']['name']);
+    $image_temp_location  = escape_string($_FILES['file']['tmp_name']);
+
+    move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image); 
+
+    $query = query("INSERT INTO products(product_title,product_category_id,product_price,product_description,product_short_description, product_quantity,product_image) VALUES('{$product_title}','{$product_category_id}','{$product_price}','{$product_description}','{$product_short_desc}', '{$product_quantity}','{$product_image}')");
+    $last_id = last_id();
+    confirm($query);
+    set_message("New product with id {$last_id} just added");
+    redirect("index.php?products");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
