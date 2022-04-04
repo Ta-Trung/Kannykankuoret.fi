@@ -272,12 +272,13 @@ function display_orders(){
   }
 }
 
-//ADMIN PRODUCTS
+//ADMIN PRODUCTS PAGES
 function get_products_in_admin(){
   $query = query("SELECT * FROM products");
   confirm($query);
 
   while($row = fetch_array($query)){
+    $category = show_product_category_title($row['product_category_id']);
     $product = <<<DELIMETER
     <div class="col-lg-3 col-md-6">
         <div class="card mb-3">
@@ -300,6 +301,7 @@ function get_products_in_admin(){
                 <div class="product-text">
                     <span class="pro-price bg-primary text-dark">€{$row['product_price']}</span>
                     <h5 class="card-title mb-0">{$row['product_title']}</h5>
+                    <h4 class="card-title mb-0">{$category}</h4>
                     <small class="text-muted db">{$row['product_short_description']}</small>
                 </div>
             </div>
@@ -309,6 +311,20 @@ function get_products_in_admin(){
     echo $product;
   }
 }
+
+function show_product_category_title($product_category_id){
+  $category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}'");
+  confirm($category_query);
+
+  while($category_row = fetch_array($category_query)){
+    return $category_row['cat_title'];
+  }
+}
+
+
+
+
+
 
 //ADD PRODUCTS IN ADMIN
 function add_product(){
@@ -329,6 +345,20 @@ function add_product(){
     confirm($query);
     set_message("New product with id {$last_id} just added");
     redirect("index.php?products");
+  }
+}
+
+//Get categories
+function show_categories_add_products(){
+  $query = query("SELECT * FROM categories");
+  confirm($query);
+
+  while($row = mysqli_fetch_array($query)) {
+      $category_options = <<<DELIMETER
+      <option value="{$row['cat_id']}">{$row['cat_title']}</option>
+      DELIMETER;
+
+      echo $category_options;
   }
 }
 

@@ -28,10 +28,7 @@
                                     <div class="form-group">
                                         <label for="" class="form-label">Category</label>
                                         <select name="product_category_id" id="" class="form-control" data-placeholder="Choose a Category" tabindex="1">
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 3</option>
-                                            <option value="Category 4">Category 4</option>
+                                            <?php show_categories_add_products(); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -125,7 +122,7 @@
                                             <br>
                                         </div>
                                         <div class="fileupload btn btn-info wave-effect-wave-light text-white mt-3">
-                                            <span>Upload Anonther Image</span>
+                                            <span>Upload Another Image</span>
                                             <input type="file" name="file"class="upload">
                                         </div>
                                     </div>
