@@ -123,7 +123,7 @@
                                         </div>
                                         <div class="fileupload btn btn-info wave-effect-wave-light text-white mt-3">
                                             <span>Upload Another Image</span>
-                                            <input type="file" name="file"class="upload">
+                                            <input type="file" name="file" class="upload">
                                         </div>
                                     </div>
                                 </div>

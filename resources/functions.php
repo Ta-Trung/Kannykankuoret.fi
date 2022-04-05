@@ -284,7 +284,7 @@ function get_products_in_admin(){
         <div class="card mb-3">
             <div class="card-body">
                 <div class="product-img">
-                    <img src="{$row['product_image_admin']}" alt="">
+                    <img src="../../resources/uploads/{$row['product_image']}" alt="">
                     <div class="pro-img-overlay">
                         <a href="index.php?edit_product&id={$row['product_id']}" class="bg-info">
                             <svg class="bi text-dark" width="24" height="24">
