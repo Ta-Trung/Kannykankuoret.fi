@@ -1,5 +1,5 @@
 <?php
-
+$upload_directory = "uploads";
 //HELPER FUNCTIONS
 
 //Get last order id
@@ -62,14 +62,16 @@ function fetch_array($result){
 function get_products(){
     $query = query("SELECT * FROM products");
     confirm($query);
+    
 
     while($row = fetch_array($query)){
+        $product_image = display_image($row['product_image']);
         $product = <<<DELIMETER
         <div class="col-md-3 product-small">
           <div class="product-small__inner">
             <div class="product-small__box">
               <div class="product-small__image">
-                <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
+                <a href="item.php?id={$row['product_id']}"><img src="../resources/uploads/{$product_image}" alt="Chicago" width="283" height="322"></a>
               </div>
               <div class="product-small__text">
                 <div class="title-wrapper">
@@ -125,12 +127,13 @@ function get_products_in_cat_page(){
   confirm($query);
 
   while($row = fetch_array($query)){
+      $product_image = display_image($row['product_image']);
       $product = <<<DELIMETER
       <div class="col-md-3 product-small">
         <div class="product-small__inner">
           <div class="product-small__box">
             <div class="product-small__image">
-              <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
+              <a href="item.php?id={$row['product_id']}"><img src="../resources/uploads/{$product_image}" alt="Chicago" width="283" height="322"></a>
             </div>
             <div class="product-small__text">
               <div class="title-wrapper">
@@ -165,12 +168,13 @@ function get_products_in_shop_page(){
   confirm($query);
 
   while($row = fetch_array($query)){
+      $product_image = display_image($row['product_image']);
       $product = <<<DELIMETER
       <div class="col-md-3 product-small">
         <div class="product-small__inner">
           <div class="product-small__box">
             <div class="product-small__image">
-              <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt="Chicago" width="283" height="322"></a>
+              <a href="item.php?id={$row['product_id']}"><img src="../resources/uploads/{$product_image}" alt="Chicago" width="283" height="322"></a>
             </div>
             <div class="product-small__text">
               <div class="title-wrapper">
@@ -273,18 +277,25 @@ function display_orders(){
 }
 
 //ADMIN PRODUCTS PAGES
+function display_image($picture){
+  global $uploads_directory;
+  return $uploads_directory . DS . $picture;
+}
+
+
 function get_products_in_admin(){
   $query = query("SELECT * FROM products");
   confirm($query);
 
   while($row = fetch_array($query)){
     $category = show_product_category_title($row['product_category_id']);
+    $product_image = display_image($row['product_image']);
     $product = <<<DELIMETER
     <div class="col-lg-3 col-md-6">
         <div class="card mb-3">
             <div class="card-body">
                 <div class="product-img">
-                    <img src="../../resources/uploads/{$row['product_image']}" alt="">
+                    <img src="../../resources/uploads/{$product_image}" alt="" width='335' height='249'>
                     <div class="pro-img-overlay">
                         <a href="index.php?edit_product&id={$row['product_id']}" class="bg-info">
                             <svg class="bi text-dark" width="24" height="24">

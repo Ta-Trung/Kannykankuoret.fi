@@ -50,7 +50,7 @@
                                 <div class="product-main__viewport overflow-hidden position-relative">
                                     <div class="div product-main__slider">
                                         <div class="product-main__gallery-image">
-                                            <a href="#"><img src="<?php echo $row['product_page_main_image'];?>" alt="" width="510" height="510"></a>
+                                            <a href="#"><img src="../resources/uploads/<?php echo display_image($row['product_image']);?>" alt="" width="510" height="510"></a>
                                         </div>
                                     </div>
                                 </div>

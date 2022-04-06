@@ -1,3 +1,4 @@
+<?php add_product(); ?>
 <?php include(TEMPLATE_BACK . "/sidebar_nav.php"); ?>
 <section class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 edit-product-admin">
     <div class="row">
@@ -7,7 +8,6 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-body">
                             <h5 class="card-title">Add Product</h5>
-                            <?php add_product(); ?>
                             <hr>
                             <div class="row">
                                 <div class="col-md-6">
