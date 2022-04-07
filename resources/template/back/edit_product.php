@@ -1,10 +1,30 @@
+<?php 
+if(isset($_GET['id'])){
+    $query = query("SELECT * FROM products WHERE product_id = ". escape_string($_GET['id']) . "");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+    $product_title        = escape_string($row['product_title']);
+    $product_category_id  = escape_string($row['product_category_id']);
+    $product_price        = escape_string($row['product_price']);
+    $product_description  = escape_string($row['product_description']);
+    $product_short_desc   = escape_string($row['product_short_description']);
+    $product_quantity     = escape_string($row['product_quantity']);
+    $product_image        = escape_string($row['product_image']);
+    }
+    update_product();
+}
+
+?>
+
+
 <?php include(TEMPLATE_BACK . "/sidebar_nav.php"); ?>
 <section class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 edit-product-admin">
     <div class="row">
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-body">
-                    <form action="#">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-body">
                             <h5 class="card-title">Edit Product</h5>
                             <hr>
@@ -12,13 +32,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="" class="form-label">Product Name</label>
-                                        <input type="text" id="firstname" class="form-control" placeholder="Product name">
+                                        <input type="text" name="product_title" id="firstname" class="form-control" value="<?php echo $product_title; ?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="" class="form-label">Sub Title</label>
-                                        <input type="text" id="lastname" class="form-control" placeholder="Product name">
+                                        <label for="" class="form-label">Product Short Description</label>
+                                        <input type="text" name="product_short_description" id="lastname" class="form-control" placeholder="Product Short Description">
                                     </div>
                                 </div>
                             </div>
@@ -26,11 +46,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="" class="form-label">Category</label>
-                                        <select name="" id="" class="form-control" data-placeholder="Choose a Category" tabindex="1">
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 3</option>
-                                            <option value="Category 4">Category 4</option>
+                                        <select name="product_category_id" id="" class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                            <?php show_categories_add_products(); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -62,13 +79,13 @@
                                                 </svg>
                                                </span>
                                            </div>
-                                           <input type="text" class="form-control" placeholder="price" aria-label="price" aria-describedby="basic-addon1"> 
+                                           <input type="text" name="product_price" class="form-control" placeholder="price" aria-label="price" aria-describedby="basic-addon1"> 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="" class="form-label">Discount</label>
+                                        <label for="" class="form-label">Quantity</label>
                                         <div class="input-group mb-3">
                                            <div class="input-group-prepend">
                                                <span class="input-group-text" id="basic-addon2">
@@ -77,7 +94,7 @@
                                                 </svg>
                                                </span>
                                            </div>
-                                           <input type="text" class="form-control" placeholder="discount" aria-label="discount" aria-describedby="basic-addon2"> 
+                                           <input type="number" name="product_quantity" class="form-control" aria-describedby="basic-addon2"> 
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +103,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" rows="4">
+                                        <textarea class="form-control" name="product_description" rows="4">
                                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt 
                                             amet autem harum molestiae cumque cupiditate cum nam voluptate nobis eum?
                                         </textarea>
@@ -94,7 +111,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <!--<div class="col-md-6">
                                     <div class="form-group">
                                         <label for="" class="form-label">Meta title</label>
                                         <input type="text" class="form-control">
@@ -105,7 +122,7 @@
                                         <label for="" class="form-label">Meta Keywork</label>
                                         <input type="text" class="form-control">
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="col-md-3">
                                     <h5 class="card-title mt-3">Upload Image</h5>
                                     <div class="product-img">
@@ -124,13 +141,13 @@
                                             <br>
                                         </div>
                                         <div class="fileupload btn btn-info wave-effect-wave-light text-white mt-3">
-                                            <span>Upload Anonther Image</span>
-                                            <input type="file" class="upload">
+                                            <span>Upload Another Image</span>
+                                            <input type="file" name="file" class="upload">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!--<div class="row">
                                 <div class="col-md-12">
                                     <h5 class="card-title mt-5">General Info</h5>
                                     <div class="table-responsive">
@@ -180,14 +197,14 @@
                                         </table>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <hr>
                             <div class="form-action mt-5">
-                                <button type="submit" class="btn btn-success text-white">
+                                <button type="submit" name="update" class="btn btn-success text-white">
                                     <svg class="bi" width="24" height="24">
                                         <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#check"/>
                                     </svg>
-                                    Save
+                                    Update
                                 </button>
                                 <button type="button" class="btn btn-dark"> Cancel</button>
                             </div>
