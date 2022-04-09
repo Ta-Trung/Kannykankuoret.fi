@@ -4,14 +4,18 @@ if(isset($_GET['id'])){
     confirm($query);
 
     while($row = fetch_array($query)){
-    $product_title        = escape_string($row['product_title']);
-    $product_category_id  = escape_string($row['product_category_id']);
-    $product_price        = escape_string($row['product_price']);
-    $product_description  = escape_string($row['product_description']);
-    $product_short_desc   = escape_string($row['product_short_description']);
-    $product_quantity     = escape_string($row['product_quantity']);
-    $product_image        = escape_string($row['product_image']);
+    $product_title               = escape_string($row['product_title']);
+    $product_category_id         = escape_string($row['product_category_id']);
+    $product_price               = escape_string($row['product_price']);
+    $product_description         = escape_string($row['product_description']);
+    $product_short_description   = escape_string($row['product_short_description']);
+    $product_quantity            = escape_string($row['product_quantity']);
+    $product_image               = escape_string($row['product_image']);
+    $product_status              = escape_string($row['product_status']);
+
+    $product_image = display_image($row['product_image']);
     }
+    
     update_product();
 }
 
@@ -38,7 +42,8 @@ if(isset($_GET['id'])){
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="" class="form-label">Product Short Description</label>
-                                        <input type="text" name="product_short_description" id="lastname" class="form-control" placeholder="Product Short Description">
+                                        <input type="text" name="product_short_description" id="lastname" class="form-control" placeholder="Product Short Description" 
+                                        <?php echo $product_short_description; ?>>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +52,8 @@ if(isset($_GET['id'])){
                                     <div class="form-group">
                                         <label for="" class="form-label">Category</label>
                                         <select name="product_category_id" id="" class="form-control" data-placeholder="Choose a Category" tabindex="1">
-                                            <?php show_categories_add_products(); ?>
+                                            <option value="<?php echo $product_category_id; ?>"><?php echo show_product_category_title($product_category_id); ?></option>
+                                                <?php show_categories_add_products(); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -56,12 +62,12 @@ if(isset($_GET['id'])){
                                         <label for="" class="form-label">Status</label>
                                         <br>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="customRadioInline1" class="form-check-input" name="customRadioInline1">
+                                            <input type="radio" id="customRadioInline1" class="form-check-input" name="product_status" <?php echo $product_status; ?>>
                                             <label for="customRadioInline1" class="form-check-label ml-3">Publish</label>
                                         </div>
                                         <br>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" id="customRadioInline2" class="form-check-input" name="customRadioInline1">
+                                            <input type="radio" id="customRadioInline2" class="form-check-input" name="product_status" <?php echo $product_status; ?>>
                                             <label for="customRadioInline2" class="form-check-label ml-3">Draft</label>
                                         </div>
                                     </div>
@@ -79,7 +85,8 @@ if(isset($_GET['id'])){
                                                 </svg>
                                                </span>
                                            </div>
-                                           <input type="text" name="product_price" class="form-control" placeholder="price" aria-label="price" aria-describedby="basic-addon1"> 
+                                           <input type="text" name="product_price" class="form-control" placeholder="price" aria-label="price" aria-describedby="basic-addon1" 
+                                           value="<?php echo $product_price; ?>"> 
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +101,7 @@ if(isset($_GET['id'])){
                                                 </svg>
                                                </span>
                                            </div>
-                                           <input type="number" name="product_quantity" class="form-control" aria-describedby="basic-addon2"> 
+                                           <input type="number" name="product_quantity" class="form-control" aria-describedby="basic-addon2" value="<?php echo $product_quantity; ?>"> 
                                         </div>
                                     </div>
                                 </div>
@@ -103,10 +110,7 @@ if(isset($_GET['id'])){
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="product_description" rows="4">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt 
-                                            amet autem harum molestiae cumque cupiditate cum nam voluptate nobis eum?
-                                        </textarea>
+                                        <textarea class="form-control" name="product_description" rows="4" <?php echo $product_description; ?>></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +130,7 @@ if(isset($_GET['id'])){
                                 <div class="col-md-3">
                                     <h5 class="card-title mt-3">Upload Image</h5>
                                     <div class="product-img">
-                                        <img src="https://via.placeholder.com/200x249" alt="">
+                                        <img src="..\..\resources\uploads<?php echo $product_image; ?>" alt="" width='200'>
                                         <div class="pro-img-overlay">
                                             <a href="#" class="bg-info">
                                                 <svg class="bi text-dark" width="24" height="24">

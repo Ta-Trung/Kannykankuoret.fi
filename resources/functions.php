@@ -295,7 +295,7 @@ function get_products_in_admin(){
         <div class="card mb-3">
             <div class="card-body">
                 <div class="product-img">
-                    <img src="../../resources/uploads/{$product_image}" alt="" width='335' height='249'>
+                    <img src="../../resources/uploads{$product_image}" alt="" width='335' height='249'>
                     <div class="pro-img-overlay">
                         <a href="index.php?edit_product&id={$row['product_id']}" class="bg-info">
                             <svg class="bi text-dark" width="24" height="24">
@@ -380,25 +380,35 @@ function update_product(){
     $product_category_id  = escape_string($_POST['product_category_id']);
     $product_price        = escape_string($_POST['product_price']);
     $product_description  = escape_string($_POST['product_description']);
-    $product_short_desc   = escape_string($_POST['product_short_description']);
+    $product_short_description   = escape_string($_POST['product_short_description']);
     $product_quantity     = escape_string($_POST['product_quantity']);
+    $product_status       = escape_string($_POST['product_status']);
     $product_image        = escape_string($_FILES['file']['name']);
     $image_temp_location  = escape_string($_FILES['file']['tmp_name']);
+
+    if(empty($product_image)){
+      $get_pic = query("SELECT product_image FROM products WHERE product_id = " .escape_string($_GET['id']). " ");
+      confirm($get_pic);
+      while($pic = fetch_array($get_pic)){
+        $product_image = $pic['product_image'];
+      }
+    }
 
     move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image); 
 
     $query = "UPDATE products SET ";
-    $query .= "product_title        = '{$product_title}'      , ";
-    $query .= "product_category_id  = '{$product_category_id}', ";
-    $query .= "product_price        = '{$product_price}'      , ";
-    $query .= "product_description  = '{$product_description}', ";
-    $query .= "product_short_desc   = '{$product_short_desc}' , ";
-    $query .= "product_quantity     = '{$product_quantity}'   , ";
-    $query .= "product_image        = '{$product_image}'      , ";
-    $query .= "product_image        = '{$product_image}'        ";
-    $query .= "WHERE product_id" . escape_string($_GET['id']);
+    $query .= "product_title               = '{$product_title}'      , ";
+    $query .= "product_category_id         = '{$product_category_id}', ";
+    $query .= "product_price               = '{$product_price}'      , ";
+    $query .= "product_description         = '{$product_description}', ";
+    $query .= "product_short_description   = '{$product_short_description}' , ";
+    $query .= "product_quantity            = '{$product_quantity}'   , ";
+    $query .= "product_status              = '{$product_status}'   , ";
+    $query .= "product_image               = '{$product_image}'        ";
+    $query .= "WHERE product_id=" . escape_string($_GET['id']);
 
-    confirm($query);
+    $send_update_query = query($query);
+    confirm($send_update_query);
     set_message("Products have been updated");
     redirect("index.php?products");
   }
