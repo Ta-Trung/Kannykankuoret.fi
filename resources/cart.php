@@ -63,10 +63,11 @@ function cart(){
                 $product_price = $row['product_price']*$value;
                 $sub += $product_price ;
                 $item_quantity += $value;
+                $product_image = display_image($row['product_image']);
                 
                 $product = <<<DELIMETER
                     <div class="col-md-2 col-lg-2 col-xl-2 mt-3">
-                    <img src="https://via.placeholder.com/71x89" alt="" class="img-fluid rounded-3">
+                    <img src="../resources/uploads/{$product_image}" alt="" class="img-fluid rounded-3" width='76' height='91'>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
                         <h6 class="text-muted">Shirt</h6>
