@@ -48,6 +48,14 @@
                 </svg> Edit Products <span class="sr-only">(current)</span>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="index.php?users" class="nav-link active text-dark">
+                <svg class="bi text-dark" width="24" height="24">
+                  <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#wallet2"/>
+                </svg> Users <span class="sr-only">(current)</span>
+              </a>
+            </li>
           </ul>
 
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

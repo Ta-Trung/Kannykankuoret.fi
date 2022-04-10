@@ -470,6 +470,30 @@ function add_category(){
   }
 }
 
+/** ADMIN USERS **/
+function display_users(){
+  $query  = "SELECT * FROM users";
+  $user_query = query($query);
+  confirm($query);
+
+  while($row  = fetch_array($user_query)){
+    $user_id   = $row['user_id'];
+    $username  = $row['username'];
+    $email     = $row['email'];
+    $password  = $row['password'];
+
+    $user = <<<DELIMETER
+    <tr>
+      <td>{$row['user_id']}</td>
+      <td>{$row['username']}</td>
+      <td>{$row['email']}</td>
+      <td>{$row['password']}</td>
+      <td><a class="btn btn-danger" href="../../resources/template/back/delete_user.php?id={$row['user_id']}">Remove</a></td>
+    </tr>
+    DELIMETER;
+    echo $user;
+  }
+}
 
 
 
