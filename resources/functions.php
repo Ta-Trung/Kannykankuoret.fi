@@ -414,6 +414,61 @@ function update_product(){
   }
 }
 
+/** CATEGORIES IN ADMIN**/
+function show_categories_in_admin(){
+  $query  = "SELECT * FROM categories";
+  $category_query = query($query);
+  confirm($query);
+
+  while($row  = fetch_array($category_query)){
+    $cat_id  = $row['cat_id'];
+    $cat_title  = $row['cat_title'];
+
+    $category = <<<DELIMETER
+    <div class="col-lg-3 col-md-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/335x249" alt="">
+                    <div class="pro-img-overlay">
+                        <a href="#" class="bg-info">
+                            <svg class="bi text-dark" width="24" height="24">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#pencil"/>
+                            </svg>
+                        </a>
+                        <a href="../../resources/template/back/delete_category.php?id={$row['cat_id']}" class="bg-danger">
+                            <svg class="bi text-dark" width="24" height="24">
+                                <use xlink:href="node_modules/bootstrap-icons/bootstrap-icons.svg#trash"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-text">
+                    <span class="pro-price bg-primary text-dark">€15</span>
+                    <h5 class="card-title mb-0">{$cat_id}. {$cat_title}</h5>
+                    <small class="text-muted db">Product description small</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    DELIMETER;
+    echo $category;
+  }
+}
+
+function add_category(){
+  if(isset($_POST['add_category'])){
+    $cat_title  = escape_string($_POST['cat_title']);
+
+    if(empty($cat_title)  || $cat_title == " "){
+      echo "This cannot be emptied";
+    } else{
+    $insert_cat = query("INSERT INTO categories(cat_title) VALUES('{$cat_title}')");
+    confirm($insert_cat);
+    set_message("CATEGORY CREATED");
+    }
+  }
+}
 
 
 
