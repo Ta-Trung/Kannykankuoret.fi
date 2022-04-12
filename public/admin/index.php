@@ -44,6 +44,10 @@ if(isset($_GET['edit_user'])){
   include(TEMPLATE_BACK . "/edit_user.php");
 }
 
+if(isset($_GET['report'])){
+  include(TEMPLATE_BACK . "/report.php");
+}
+
 ?>
 
   <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
