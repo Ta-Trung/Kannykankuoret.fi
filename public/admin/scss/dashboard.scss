@@ -61,7 +61,7 @@ $success: #7952b3;
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/media";
-// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
 // @import "bootstrap/scss/toasts";
 @import "bootstrap/scss/modal"; // Requires transitions
@@ -314,4 +314,24 @@ body {
   -o-border-radius: 100%;
   top: -30px;
   right: 0px;
+}
+
+/***USER PAGE ADMIN***/
+.add-user-admin {
+  font-size: 1.6rem;
+}
+
+.add-user-admin h5 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+.add-user-admin input {
+  font-size: 1.6rem;
+}
+
+.add-user-admin button {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }
