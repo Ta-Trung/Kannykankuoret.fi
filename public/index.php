@@ -6,6 +6,30 @@
     
     <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
 
+    <script>
+      var arrayFish = new Array(10,10,20,30);
+
+      function SeeTheArray(){
+        document.getElementById('divContent').innerHTML = arrayFish;
+      }
+    </script>
+
+
+    <!--PRACTICE JAVA-->
+    <div class="container section-title-container mb-3">
+      <h3 class="section-title section-title-normal">
+        <b></b>
+        <span class="section-title__main">New Arrivals</span>
+        <b></b>
+        <a href="#">
+          Browse all
+          <i class="bi bi-chevron-right ml-5"></i>
+        </a>
+      </h3>
+      <button onclick="SeeTheArray();" id="theButton" class="btn btn-primary">Submit</button>
+      <h1 id="divContent"></h1>
+    </div>
+
     <!--PRODUCTS-->
     <div class="container section-title-container mb-3">
       <h3 class="section-title section-title-normal">
