@@ -20,19 +20,3 @@ import "../../node_modules/bootstrap/js/dist/util.js";
 import "../../node_modules/bootstrap/js/dist/modal.js";
 
 //LOOPS
-function addNumbers() {
-  var number1 = 10;
-  var number2 = 20;
-
-  var calculation = number1 + number2;
-  return calculation;
-}
-
-//EVENT HANDLERS
-document.getElementById("button2").onclick = function () {
-  clickMeFunction();
-};
-
-function clickMeFunction() {
-  alert("This is from main js");
-}

@@ -1,7 +1,7 @@
 <?php require_once("../resources/config.php") ?>
 
 <!--HEADER-->
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>   
+<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
     <!--MAIN CONTENT-->
     
     <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
@@ -16,7 +16,6 @@
           <i class="bi bi-chevron-right ml-5"></i>
         </a>
       </h3>
-      <button onclick="alert('This is a test')" class="btn btn-primary">CLICK ME</button>
       <button id="button2" class="btn btn-success">CLICK ME</button>
     </div>
 
