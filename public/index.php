@@ -7,16 +7,51 @@
     <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
     <!--PRACTICE JAVA-->
     <div class="container section-title-container mb-3">
-      <h3 class="section-title section-title-normal">
-        <b></b>
-        <span class="section-title__main">New Arrivals</span>
-        <b></b>
-        <a href="#">
-          Browse all
-          <i class="bi bi-chevron-right ml-5"></i>
-        </a>
-      </h3>
-      <button id="button2" class="btn btn-success">CLICK ME</button>
+      <div class="row carimages">
+        <ul>
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+
+          <div class="col-sm-3 image grid-item">
+            <a href="" class="thumbnail">
+              <img src="./assets/img/101913921A-1_1000X1000.jpg" alt="" class="img-responsive">
+            </a>
+          </div>
+        </ul>
+      </div>
     </div>
 
     <!--PRODUCTS-->

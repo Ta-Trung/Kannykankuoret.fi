@@ -75,6 +75,7 @@
 </footer>
   <!--SCRIPT SECTIONS-->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
     <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>

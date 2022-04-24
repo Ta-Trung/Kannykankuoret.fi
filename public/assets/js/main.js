@@ -20,3 +20,10 @@ import "../../node_modules/bootstrap/js/dist/util.js";
 import "../../node_modules/bootstrap/js/dist/modal.js";
 
 //LOOPS
+
+(function () {
+  var carimages = document.querySelector(".carimages");
+  carimages.addEventListener("click", function (e) {
+    console.log(e.target);
+  });
+})();
